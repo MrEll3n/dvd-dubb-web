@@ -1,14 +1,24 @@
 ---
-import NavbarItem from "./navbar-item.astro"
+import NavJumps from "./nav-jumps.astro"
 ---
 
 
-<div class="bg-gray-800">
-    <div class="flex space-x-4">
-        <NavbarItem link="index" label="Home" />
-        <NavbarItem link="about" label="About" />
-        <NavbarItem link="contact" label="Contact" />
-        <NavbarItem link="login" label="Home" />     
+<div class="fixed t-0 w-full bg-white">
+    <!--  Main navigation container -->
+    <div class="relative shadow-md">
+        <div class="flex flex-row space-x-6 h-12 justify-center"> 
+            <div class="absolute flex flex-row space-x-6 h-12 left-0 pl-6 items-center" >
+                <p>Logo</p>
+            </div>
+            <div class="flex flex-row space-x-6 h-12">
+                <NavJumps link="index" label="Home" selected={false} />
+                <NavJumps link="about" label="About" selected={false} />
+                <NavJumps link="login" label="Login" selected={false} />
+            </div>
+            <div class="absolute flex flex-row space-x-6 h-12 right-0 pr-6"> 
+                <NavJumps link="contact" label="Contact" selected={false} />
+            </div>
+        </div>
     </div>
 </div>
 
