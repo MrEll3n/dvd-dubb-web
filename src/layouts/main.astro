@@ -1,5 +1,9 @@
 ---
+import Footer from "../components/footer.astro"
 import Navbar from "../components/navbar.astro"
+import { Image } from 'astro:assets';
+import dvdLogoLarge from '../../public/img/DVD_Logo_2560x1440.png';
+import '../../global.css'
 ---
 
 <html>
@@ -7,8 +11,16 @@ import Navbar from "../components/navbar.astro"
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body>
-        <Navbar />
-        <slot />
+    <body class="bg-black/80">
+        <div class="bg-cover bg-[url('/img/wallpaper1.jpg')]">
+            <div class=" bg-black/75">
+                <Navbar />
+                <div class="flex justify-center">
+                    <Image class="hidden" src={dvdLogoLarge} alt="Logo" width="1000" height="500">
+                </div>
+                <slot />
+            </div>
+        </div>
+        <Footer />
     </body>
 </html>

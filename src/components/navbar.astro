@@ -1,22 +1,25 @@
 ---
-import NavJumps from "./nav-jumps.astro"
+import NavJump from "./navJump.astro"
+import NavJumpBordered from "./navJumpBordered.astro"
 ---
 
 
-<div class="fixed t-0 w-full bg-white">
+<div class="sticky t-0 w-full"> <!-- bg-white -->
     <!--  Main navigation container -->
-    <div class="relative shadow-md">
-        <div class="flex flex-row space-x-6 h-12 justify-center"> 
-            <div class="absolute flex flex-row space-x-6 h-12 left-0 pl-6 items-center" >
-                <p>Logo</p>
+    <div class="relative h-20"> <!-- border-b  -->
+        <div class="flex flex-row space-x-6 h-20 justify-center"> 
+            <div class="absolute flex flex-row space-x-6 h-20 left-0 items-center pl-14" >
+                <img src="img/DVD_Logo_2560x1440.png" alt="Logo" width="250" height="150">
             </div>
-            <div class="flex flex-row space-x-6 h-12">
-                <NavJumps link="index" label="Home" selected={false} />
-                <NavJumps link="about" label="About" selected={false} />
-                <NavJumps link="login" label="Login" selected={false} />
+            <div class="flex flex-row space-x-6 h-20">
+                <NavJump link="about" label="O nás" selected={false} />
+                <NavJump link="crew" label="Členové" selected={false} />
+                <NavJump link="showcase" label="Ukázka prací" selected={false} />
+                <NavJump link="galery" label="Galerie" selected={false} />
+                <NavJump link="patreon" label="Patreon" selected={false} />
             </div>
-            <div class="absolute flex flex-row space-x-6 h-12 right-0 pr-6"> 
-                <NavJumps link="contact" label="Contact" selected={false} />
+            <div class="absolute flex flex-row space-x-6 h-20 right-0 pr-14"> 
+                <NavJumpBordered link="contact" label="Kontakt" selected={false} />
             </div>
         </div>
     </div>

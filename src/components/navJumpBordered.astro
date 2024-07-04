@@ -1,0 +1,19 @@
+---
+interface Props {
+  link: string;
+  label: string;
+  selected: boolean;
+}
+
+let { link, label, selected } = Astro.props;
+
+let showBorders: boolean = false; 
+
+link = '#'+link;
+
+---
+
+<div class:list={[ 'flex items-center', selected ? 'border-b-4 rounded': '' ]}>
+      <a href={link} class="font-nexa text-white px-4 py-2 border-2 rounded hover:border-red-500 transition">{label}</a>
+</div>
+
