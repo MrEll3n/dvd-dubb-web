@@ -4,20 +4,19 @@ import Navbar from "../components/navbar.astro"
 import { Image } from 'astro:assets';
 import dvdLogoLarge from '../../public/img/DVD_Logo_2560x1440.png';
 import '../../global.css'
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <ViewTransitions />
     </head>
     <body class="bg-black/80">
         <div class="bg-cover bg-[url('/img/wallpaper1.jpg')]">
             <div class=" bg-black/75">
                 <Navbar />
-                <div class="flex justify-center">
-                    <Image class="hidden" src={dvdLogoLarge} alt="Logo" width="1000" height="500">
-                </div>
                 <slot />
             </div>
         </div>

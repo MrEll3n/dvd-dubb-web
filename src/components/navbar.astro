@@ -9,14 +9,15 @@ import NavJumpBordered from "./navJumpBordered.astro"
     <div class="relative h-20"> <!-- border-b  -->
         <div class="flex flex-row space-x-6 h-20 justify-center"> 
             <div class="absolute flex flex-row space-x-6 h-20 left-0 items-center pl-14" >
-                <img src="img/DVD_Logo_2560x1440.png" alt="Logo" width="250" height="150">
+                <img src="img/DVD_Logo_800x800.png" alt="Logo" width="125" height="125">
             </div>
             <div class="flex flex-row space-x-6 h-20">
+                <NavJump link="news" label="Novinky" selected={false} />
                 <NavJump link="about" label="O nás" selected={false} />
                 <NavJump link="crew" label="Členové" selected={false} />
                 <NavJump link="showcase" label="Ukázka prací" selected={false} />
                 <NavJump link="galery" label="Galerie" selected={false} />
-                <NavJump link="patreon" label="Patreon" selected={false} />
+                <NavJump link="https://www.patreon.com/michalstevenkaspar" label="Patreon" selected={false} />
             </div>
             <div class="absolute flex flex-row space-x-6 h-20 right-0 pr-14"> 
                 <NavJumpBordered link="contact" label="Kontakt" selected={false} />
