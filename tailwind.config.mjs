@@ -5,9 +5,13 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		fontFamily: {
-			'nexa': ['Nexa-Heavy', 'sans-serif'],
+			'nexaBold': ['Nexa-Heavy', 'sans-serif'],
+			'nexa': ['Nexa-ExtraLight', 'sans-serif'],
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/forms'),
+		require('tailwindcss-patterns'),
+	],
 };
 

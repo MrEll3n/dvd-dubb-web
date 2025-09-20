@@ -1,0 +1,14 @@
+---
+interface Props {
+    imgSrc: string;
+    imgAlt: string;
+
+}
+
+let {imgSrc, imgAlt} = Astro.props;
+
+---
+
+<div class="w-1/12 px-2">
+    <img class="object-scale-down" src={imgSrc != "" ? imgSrc : "img/unknown_member.jpg"} alt={imgAlt}>
+</div>
