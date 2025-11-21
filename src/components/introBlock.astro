@@ -1,0 +1,68 @@
+---
+---
+<!-- AOS -->
+<script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+
+  AOS.init();
+</script>
+
+<section
+  data-parallax
+  class="relative h-screen overflow-hidden bg-cover bg-center bg-[url('/img/wallpaper1.jpg')]"
+>
+  <!-- dark overlay -->
+  <div class="absolute inset-0 bg-black/75"></div>
+
+  <!-- content -->
+  <div class="relative z-10 flex flex-col justify-center items-center h-full gap-y-12">
+    <div class="relative flex justify-center pt-20">
+      <img
+        data-aos="fade-left"
+        data-aos-duration="1100"
+        src="/img/DVD_Logo_2560x1440.png"
+        alt="Logo"
+        width="1000"
+        height="600"
+      />
+    </div>
+
+    <div class="flex justify-center font-nexaBold text-4xl text-white w-4/6">
+      <p
+        data-aos="fade-right"
+        data-aos-duration="1100"
+        class="h-[3em] bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-yellow-300 from-45% to-95%"
+      >
+        Když tě štvou titulky, pust si to s dabingem.
+      </p>
+    </div>
+  </div>
+
+  <!-- <!-- WAVE DIVIDER OVER HERO BOTTOM --> -->
+  <!-- <div class="pointer-events-none absolute bottom-0 inset-x-0 leading-[0]"> -->
+  <!--   <svg -->
+  <!--     class="block w-full h-10" -->
+  <!--     viewBox="0 0 1200 120" -->
+  <!--     preserveAspectRatio="none" -->
+  <!--     xmlns="http://www.w3.org/2000/svg" -->
+  <!--   > -->
+  <!--     <path -->
+  <!--       d="M0,60 C300,100 900,20 1200,60" -->
+  <!--       fill="none" -->
+  <!--       stroke="#111111" -->
+  <!--       stroke-width="10" -->
+  <!--     /> -->
+  <!--   </svg> -->
+  <!-- </div> -->
+</section>
+
+<script is:global>
+  window.addEventListener("scroll", () => {
+    const el = document.querySelector("[data-parallax]");
+    if (!el) return;
+
+    const offset = window.scrollY * 0.3;
+    el.style.backgroundPosition = `center ${-offset}px`;
+  });
+</script>

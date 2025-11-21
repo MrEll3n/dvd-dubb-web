@@ -1,0 +1,105 @@
+---
+const projects = [
+  {
+    title: "Fanouškovský dabing – Krátký film",
+    role: "Kompletní český dabing",
+    year: "2024",
+    type: "Film",
+    image: "/img/projects/shortfilm.jpg",
+    description:
+      "Ukázka kompletního dabingu krátkého filmu – herecké výkony, mix a finální zvuková postprodukce v našem studiu.",
+    url: "https://youtu.be/your-link-1",
+  },
+  {
+    title: "Seriálová scéna – epizoda 3",
+    role: "Dialogy + režie dabingu",
+    year: "2023",
+    type: "Seriál",
+    image: "/img/projects/series_scene.jpg",
+    description:
+      "Dabovaná dramatická scéna ze seriálu, důraz na emoce, načasování replik a práci s tichem.",
+    url: "https://youtu.be/your-link-2",
+  },
+  {
+    title: "Herní trailer – český voiceover",
+    role: "Voiceover + sound design",
+    year: "2023",
+    type: "Hra",
+    image: "/img/projects/game_trailer.jpg",
+    description:
+      "Dabing a zvukový design herního traileru. Dynamický mix, efekty a filmový feeling.",
+    url: "https://youtu.be/your-link-3",
+  },
+];
+---
+
+<section id="ukazka-praci" class="py-20">
+  <div class="mx-auto w-full max-w-6xl px-6 text-white">
+    <!-- Header -->
+    <div class="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-nexaBold">Ukázka prací</h2>
+        <p class="mt-2 text-base md:text-lg text-white/70">
+          Malý výběr projektů, na kterých jsme v Dabingu všeho druhu pracovali.
+        </p>
+      </div>
+
+      <a
+        href="https://youtube.com/…" 
+        class="inline-flex items-center justify-center rounded-full border border-white/40 px-5 py-2 text-sm font-semibold text-white/80 hover:bg-white/10 transition"
+      >
+        🎬 Více ukázek na YouTube
+      </a>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      {projects.map((p) => (
+        <article class="group flex flex-col overflow-hidden rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm shadow-lg">
+          <!-- Thumbnail -->
+          <div class="relative aspect-video overflow-hidden">
+            <img
+              src={p.image}
+              alt={p.title}
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+            <button
+              class="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white shadow group-hover:bg-red-500 transition"
+            >
+              ▶ Přehrát ukázku
+            </button>
+          </div>
+
+          <!-- Content -->
+          <div class="flex flex-1 flex-col gap-3 p-5">
+            <div class="flex items-center justify-between text-xs text-white/60">
+              <span>{p.type} · {p.year}</span>
+              <span class="rounded-full bg-white/10 px-2 py-0.5 text-[11px]">
+                {p.role}
+              </span>
+            </div>
+
+            <h3 class="text-lg font-semibold">
+              {p.title}
+            </h3>
+
+            <p class="flex-1 text-sm text-white/80">
+              {p.description}
+            </p>
+
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              class="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-red-400 hover:text-red-300 transition"
+            >
+              Přehrát na YouTube
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
