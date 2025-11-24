@@ -1,12 +1,16 @@
 ---
 import Main from "../layouts/main.astro"
-import Intro from "../components/intro.astro"
-import ContactForm from "../components/contactForm.astro"
+import IntroBlock from "../components/mainBlocks/introBlock.astro"
+import AboutUsBlock from "../components/mainBlocks/aboutUsBlock.astro"
+import OurWorkBlock from "../components/mainBlocks/ourWorkBlock.astro"
+import ContactBlock from "../components/mainBlocks/contactBlock.astro"
 ---
 
 
 
 <Main>
-    <Intro />
-    <ContactForm>
+    <IntroBlock />
+    <AboutUsBlock />
+    <OurWorkBlock />
+    <ContactBlock />
 </Main>
