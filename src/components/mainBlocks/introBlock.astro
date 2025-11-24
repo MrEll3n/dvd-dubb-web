@@ -6,11 +6,28 @@
   import "aos/dist/aos.css";
 
   AOS.init();
+
+  // Parallax funkce
+  const handleScroll = () => {
+    const el = document.querySelector("[data-parallax]");
+    if (!el) return;
+
+    const offset = window.scrollY * 0.3;
+    el.style.backgroundPosition = `center ${-offset}px`;
+  };
+
+  // Hned při načtení
+  handleScroll();
+
+  // Při scrollu
+  window.addEventListener("scroll", handleScroll);
 </script>
 
 <section
   data-parallax
-  class="relative h-screen overflow-hidden bg-cover bg-center bg-[url('/img/wallpaper1.jpg')]"
+  class="relative h-screen overflow-hidden bg-cover 
+         bg-[position:center_0px]
+         bg-[url('/img/wallpaper1.jpg')]"
 >
   <!-- dark overlay -->
   <div class="absolute inset-0 bg-black/75"></div>
@@ -34,35 +51,9 @@
         data-aos-duration="1100"
         class="h-[3em] bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-yellow-300 from-45% to-95%"
       >
-        Když tě štvou titulky, pust si to s dabingem.
+        Když tě štvou titulky, pusť si to s dabingem.
       </p>
     </div>
   </div>
 
-  <!-- <!-- WAVE DIVIDER OVER HERO BOTTOM --> -->
-  <!-- <div class="pointer-events-none absolute bottom-0 inset-x-0 leading-[0]"> -->
-  <!--   <svg -->
-  <!--     class="block w-full h-10" -->
-  <!--     viewBox="0 0 1200 120" -->
-  <!--     preserveAspectRatio="none" -->
-  <!--     xmlns="http://www.w3.org/2000/svg" -->
-  <!--   > -->
-  <!--     <path -->
-  <!--       d="M0,60 C300,100 900,20 1200,60" -->
-  <!--       fill="none" -->
-  <!--       stroke="#111111" -->
-  <!--       stroke-width="10" -->
-  <!--     /> -->
-  <!--   </svg> -->
-  <!-- </div> -->
 </section>
-
-<script is:global>
-  window.addEventListener("scroll", () => {
-    const el = document.querySelector("[data-parallax]");
-    if (!el) return;
-
-    const offset = window.scrollY * 0.3;
-    el.style.backgroundPosition = `center ${-offset}px`;
-  });
-</script>
