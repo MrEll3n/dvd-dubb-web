@@ -2,7 +2,7 @@ name: Build & Deploy via WebDAV (stable, Bun)
 
 on:
   push:
-    branches: [ stable ]
+    branches: [ main ]
 
 jobs:
   build-and-upload:
