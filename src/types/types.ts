@@ -1,5 +1,5 @@
- export interface Link {
-    href: string,
-    label: string,
-    external?: boolean,
+export interface Link {
+    href: string;
+    label: string;
+    external?: boolean;
 }
