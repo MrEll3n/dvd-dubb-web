@@ -14,3 +14,7 @@
     src: url("../fonts/nexa/Nexa-ExtraLight.ttf");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+

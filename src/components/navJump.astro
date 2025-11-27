@@ -1,21 +1,22 @@
 ---
 interface Props {
-  link: string;
-  label: string;
-  selected: boolean;
+    href: string;
+    label: string;
+    external?: boolean;
 }
 
-let { link, label, selected } = Astro.props;
+let { href, label, external = false } = Astro.props;
 
 let showBorders: boolean = false;
 
-//link = '#'+link;
-
 ---
 
-<div class:list={[ 'flex items-center', selected ? 'border-b-4 rounded': '' ]}>
-    <div class:list={[ showBorders ? 'border-b-4 rounded' : '' ]}>  
-      <a href={link} class="z-10 font-nexaBold text-white p-2  hover:text-red-500 transition ">{label}</a>
-    </div>
+<div class="flex flex-row gap-1 items-center text-white z-10 font-nexaBold p-2 hover:text-red-500 transition cursor-pointer">
+    <a href={href} class="">{label}</a>
+    {external && 
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+    </svg>
+    }
 </div>
 

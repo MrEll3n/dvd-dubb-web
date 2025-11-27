@@ -1,31 +1,16 @@
 ---
 import NavJump from "./navJump.astro"
 import NavJumpBordered from "./navJumpBordered.astro"
+import PopUpMenu from "./popUpMenu.vue"
+import { type Link } from "../types/types"
+
+const links: Link[] = [
+    { href: "news", label: "Novinky" },
+    { href: "/#aboutUs", label: "O nás" },
+    { href: "/#ourWork", label: "Ukázka prací" },
+    { href: "https://www.patreon.com/michalstevenkaspar", label: "Patreon", external: true },
+]
 ---
-
-
-
-<nav class="hidden sm:hidden md:hidden lg:block fixed t-0 w-full z-20"> <!-- bg-white -->
-    <!--  Main navigation container -->
-    <div id="bg" class="relative h-20 transition"> <!-- border-b  -->
-        <div class="flex flex-row space-x-6 h-20 justify-center"> 
-            <div class="absolute flex flex-row space-x-6 h-20 left-0 items-center pl-14" >
-                <a href="/"><img class="hover:opacity-80 transition" src="img/DVD_Logo_800x800.png" alt="Logo" width="125" height="125"></a>
-                
-            </div>
-            <div class="flex flex-row space-x-6 h-20">
-                <NavJump link="news" label="Novinky" selected={false} />
-                <NavJump link="/#aboutUs" label="O nás" selected={false} />
-                <NavJump link="/#ourWork" label="Ukázka prací" selected={false} />
-                <!-- <NavJump link="crew" label="Členové" selected={false} /> TODO: Fix for later use --> 
-                <NavJump link="https://www.patreon.com/michalstevenkaspar" label="Patreon" selected={false} />
-            </div>
-            <div class="absolute flex flex-row space-x-6 h-20 right-0 pr-14"> 
-                <NavJumpBordered link="/#contact" label="Kontakt" selected={false} />
-            </div>
-        </div>
-    </div>
-</nav>
 
 <script type="module">
     const navbar = document.getElementById("bg");
@@ -45,3 +30,34 @@ import NavJumpBordered from "./navJumpBordered.astro"
 };
 </script>
 
+
+
+<nav class="hidden sm:hidden md:hidden lg:block fixed t-0 w-full z-20"> <!-- bg-white -->
+    <!--  Main navigation container -->
+    <div id="bg" class="relative h-20 transition"> <!-- border-b  -->
+        <div class="flex flex-row space-x-6 h-20 justify-center"> 
+            <div class="absolute flex flex-row space-x-6 h-20 left-0 items-center pl-14" >
+                <a href="/"><img class="hover:opacity-80 transition" src="img/DVD_Logo_800x800.png" alt="Logo" width="125" height="125"></a>
+                
+            </div>
+            <div class="flex flex-row space-x-6 h-20">
+                {links.map((item) => (
+                    <NavJump href={item.href} label={item.label} external={item.external} />
+                ))}
+
+                <!-- <NavJump link="news" label="Novinky" /> -->
+                <!-- <NavJump link="/#aboutUs" label="O nás" /> -->
+                <!-- <NavJump link="/#ourWork" label="Ukázka prací" /> -->
+                <!-- <NavJump link="crew" label="Členové" selected={false} /> TODO: Fix for later use  -->
+                <!-- <NavJump link="https://www.patreon.com/michalstevenkaspar" label="Patreon" /> -->
+            </div>
+            <div class="absolute flex flex-row space-x-6 h-20 right-0 pr-14"> 
+                <NavJumpBordered href="/#contact" label="Kontakt" />
+            </div>
+        </div>
+    </div>
+</nav>
+
+<nav class="block lg:hidden fixed top-0 left-0 inset-x-0 w-full z-20 text-white">
+    <PopUpMenu client:only="vue" links={links} />
+</nav>
